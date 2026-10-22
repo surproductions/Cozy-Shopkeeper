@@ -1,0 +1,17 @@
+Running altool at path '/Applications/Xcode_26.3.app/Contents/SharedFrameworks/ContentDelivery.framework/Resources/altool'...
+
+2026-10-22 21:17:21.872  INFO: [ContentDelivery.Uploader.6000003F84C0] 
+==========================================
+VERIFY SUCCEEDED with no errors
+==========================================
+No errors validating archive at 'artifacts/Cozy-Shopkeeper-AppStore.ipa'.
+Running altool at path '/Applications/Xcode_26.3.app/Contents/SharedFrameworks/ContentDelivery.framework/Resources/altool'...
+
+2026-10-22 21:18:02.561  INFO: [ContentDelivery.Uploader.6000014684C0] 
+==========================================
+UPLOAD SUCCEEDED with no errors
+Delivery UUID: 39937265-21a1-49f6-b800-abf7c59c040a
+Transferred 2412364 bytes in 0.081 seconds (29.8MB/s, 238.520Mbps)
+==========================================
+No errors uploading archive at 'artifacts/Cozy-Shopkeeper-AppStore.ipa'.
+UPLOAD_OK

@@ -1,0 +1,30 @@
+[2026-10-22 21:25:19 +0000] Status=4, isTerminal=NO, Elapsed=01:22.
+	Waiting on System App
+
+[2026-10-22 21:25:27 +0000] Status=4294967295, isTerminal=YES, Elapsed=01:29.
+	Finished
+
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/01-shop.png
+captured 01-shop
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/02-stockroom.png
+captured 02-stockroom
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/03-decor.png
+captured 03-decor
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/04-journal.png
+captured 04-journal
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/05-goals.png
+captured 05-goals
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/06-upgrades.png
+captured 06-upgrades
+Detected file type 'PNG' from extension
+Wrote screenshot to: build/screenshots/07-map.png
+captured 07-map
+/Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper/build/screenshots/01-shop.png
+  pixelWidth: 1320
+  pixelHeight: 2868
