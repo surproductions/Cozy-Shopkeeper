@@ -1,0 +1,219 @@
+Building for debugging...
+[0/7] /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper/ShopCore/.build/arm64-apple-macosx/debug/ShopCorePackageTests.derived/runner.swift
+[1/7] Write sources
+[4/7] Write swift-version--79AA4F9932D1E87A.txt
+[6/17] Emitting module ShopCore
+[7/21] Compiling ShopCore GameEngine+Customers.swift
+[8/21] Compiling ShopCore GameEngine.swift
+[9/21] Compiling ShopCore SeededRandom.swift
+[10/21] Compiling ShopCore ShowcaseState.swift
+[11/21] Compiling ShopCore AnalyticsEvent.swift
+[12/21] Compiling ShopCore ContentTypes.swift
+[13/21] Compiling ShopCore GameContent.swift
+[14/21] Compiling ShopCore CompactNumber.swift
+[15/21] Compiling ShopCore EconomyConfig.swift
+[16/21] Compiling ShopCore Monetization.swift
+[17/21] Compiling ShopCore SaveSystem.swift
+[18/21] Compiling ShopCore GameEngine+Progression.swift
+[19/21] Compiling ShopCore GameState.swift
+[20/26] Compiling ShopCoreTests CompactNumberTests.swift
+[21/26] Compiling ShopCoreTests EconomyTests.swift
+[22/26] Emitting module ShopCoreTests
+[23/26] Compiling ShopCoreTests PersistenceAndMonetizationTests.swift
+[24/26] Compiling ShopCoreTests ProgressionTests.swift
+[25/27] Compiling ShopCoreTests TestSupport.swift
+[26/29] Emitting module ShopCorePackageTests
+[27/29] Compiling ShopCorePackageTests runner.swift
+[27/29] Write Objects.LinkFileList
+[28/29] Linking ShopCorePackageTests
+Build complete! (29.89s)
+Test Suite 'All tests' started at 2026-10-22 20:56:47.109.
+Test Suite 'ShopCorePackageTests.xctest' started at 2026-10-22 20:56:47.111.
+Test Suite 'AnalyticsTests' started at 2026-10-22 20:56:47.111.
+Test Case '-[ShopCoreTests.AnalyticsTests testCoreEventsAreEmittedWithoutPersonalData]' started.
+Test Case '-[ShopCoreTests.AnalyticsTests testCoreEventsAreEmittedWithoutPersonalData]' passed (0.005 seconds).
+Test Suite 'AnalyticsTests' passed at 2026-10-22 20:56:47.116.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.005 (0.005) seconds
+Test Suite 'CompactNumberTests' started at 2026-10-22 20:56:47.116.
+Test Case '-[ShopCoreTests.CompactNumberTests testFormatting]' started.
+Test Case '-[ShopCoreTests.CompactNumberTests testFormatting]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.CompactNumberTests testLabelsStayShort]' started.
+Test Case '-[ShopCoreTests.CompactNumberTests testLabelsStayShort]' passed (0.001 seconds).
+Test Suite 'CompactNumberTests' passed at 2026-10-22 20:56:47.117.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'ContentTests' started at 2026-10-22 20:56:47.117.
+Test Case '-[ShopCoreTests.ContentTests testContentReferencesAreValid]' started.
+Test Case '-[ShopCoreTests.ContentTests testContentReferencesAreValid]' passed (0.006 seconds).
+Test Case '-[ShopCoreTests.ContentTests testEveryPurchasableItemIsAffordableInPrinciple]' started.
+Test Case '-[ShopCoreTests.ContentTests testEveryPurchasableItemIsAffordableInPrinciple]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.ContentTests testMinimumContentRequirements]' started.
+Test Case '-[ShopCoreTests.ContentTests testMinimumContentRequirements]' passed (0.000 seconds).
+Test Suite 'ContentTests' passed at 2026-10-22 20:56:47.123.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.006 (0.006) seconds
+Test Suite 'CustomerTests' started at 2026-10-22 20:56:47.123.
+Test Case '-[ShopCoreTests.CustomerTests testCustomerGenerationIsDeterministic]' started.
+Test Case '-[ShopCoreTests.CustomerTests testCustomerGenerationIsDeterministic]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.CustomerTests testDiscoveryGrantsRewardOnce]' started.
+Test Case '-[ShopCoreTests.CustomerTests testDiscoveryGrantsRewardOnce]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.CustomerTests testMaxHeartsGrantsKeepsakeOnce]' started.
+Test Case '-[ShopCoreTests.CustomerTests testMaxHeartsGrantsKeepsakeOnce]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.CustomerTests testRelationshipsBecomeRegularsAndRevealBudget]' started.
+Test Case '-[ShopCoreTests.CustomerTests testRelationshipsBecomeRegularsAndRevealBudget]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.CustomerTests testRequestsAreAlwaysForAvailableProductsAndEligibleCustomers]' started.
+Test Case '-[ShopCoreTests.CustomerTests testRequestsAreAlwaysForAvailableProductsAndEligibleCustomers]' passed (0.028 seconds).
+Test Case '-[ShopCoreTests.CustomerTests testVipOnlyAppearsAtHighReputation]' started.
+Test Case '-[ShopCoreTests.CustomerTests testVipOnlyAppearsAtHighReputation]' passed (0.000 seconds).
+Test Suite 'CustomerTests' passed at 2026-10-22 20:56:47.153.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.029 (0.030) seconds
+Test Suite 'DailyRewardTests' started at 2026-10-22 20:56:47.153.
+Test Case '-[ShopCoreTests.DailyRewardTests testClockRollbackCannotFarmRewards]' started.
+Test Case '-[ShopCoreTests.DailyRewardTests testClockRollbackCannotFarmRewards]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.DailyRewardTests testDailyRewardOncePerDayAndCycle]' started.
+Test Case '-[ShopCoreTests.DailyRewardTests testDailyRewardOncePerDayAndCycle]' passed (0.002 seconds).
+Test Case '-[ShopCoreTests.DailyRewardTests testDayKeyBoundaries]' started.
+Test Case '-[ShopCoreTests.DailyRewardTests testDayKeyBoundaries]' passed (0.003 seconds).
+Test Case '-[ShopCoreTests.DailyRewardTests testMissedDaysDoNotResetProgress]' started.
+Test Case '-[ShopCoreTests.DailyRewardTests testMissedDaysDoNotResetProgress]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.DailyRewardTests testTimezoneChangeDoesNotGrantExtraDay]' started.
+Test Case '-[ShopCoreTests.DailyRewardTests testTimezoneChangeDoesNotGrantExtraDay]' passed (0.000 seconds).
+Test Suite 'DailyRewardTests' passed at 2026-10-22 20:56:47.160.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.007 (0.007) seconds
+Test Suite 'DayCycleTests' started at 2026-10-22 20:56:47.160.
+Test Case '-[ShopCoreTests.DayCycleTests testDayEndsAfterPlannedCustomersAndCloses]' started.
+Test Case '-[ShopCoreTests.DayCycleTests testDayEndsAfterPlannedCustomersAndCloses]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.DayCycleTests testEconomySimulationStaysHealthy]' started.
+Test Case '-[ShopCoreTests.DayCycleTests testEconomySimulationStaysHealthy]' passed (0.020 seconds).
+Test Case '-[ShopCoreTests.DayCycleTests testReliefPreventsSoftlock]' started.
+Test Case '-[ShopCoreTests.DayCycleTests testReliefPreventsSoftlock]' passed (0.001 seconds).
+Test Suite 'DayCycleTests' passed at 2026-10-22 20:56:47.181.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.021 (0.021) seconds
+Test Suite 'DecorationTests' started at 2026-10-22 20:56:47.181.
+Test Case '-[ShopCoreTests.DecorationTests testBuyEquipAndSwapDecorations]' started.
+Test Case '-[ShopCoreTests.DecorationTests testBuyEquipAndSwapDecorations]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.DecorationTests testCannotBuyDecorationWithoutCoins]' started.
+Test Case '-[ShopCoreTests.DecorationTests testCannotBuyDecorationWithoutCoins]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.DecorationTests testCozinessRaisesSatisfaction]' started.
+Test Case '-[ShopCoreTests.DecorationTests testCozinessRaisesSatisfaction]' passed (0.000 seconds).
+Test Suite 'DecorationTests' passed at 2026-10-22 20:56:47.182.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+Test Suite 'DistrictTests' started at 2026-10-22 20:56:47.182.
+Test Case '-[ShopCoreTests.DistrictTests testCannotTravelWithCustomerWaiting]' started.
+Test Case '-[ShopCoreTests.DistrictTests testCannotTravelWithCustomerWaiting]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.DistrictTests testFlowerLaneRequiresReputationAndCoins]' started.
+Test Case '-[ShopCoreTests.DistrictTests testFlowerLaneRequiresReputationAndCoins]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.DistrictTests testPreviewDistrictsCannotBeEntered]' started.
+Test Case '-[ShopCoreTests.DistrictTests testPreviewDistrictsCannotBeEntered]' passed (0.000 seconds).
+Test Suite 'DistrictTests' passed at 2026-10-22 20:56:47.182.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+Test Suite 'MonetizationTests' started at 2026-10-22 20:56:47.182.
+Test Case '-[ShopCoreTests.MonetizationTests testEntitlementOnlyFromVerifiedPurchases]' started.
+Test Case '-[ShopCoreTests.MonetizationTests testEntitlementOnlyFromVerifiedPurchases]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.MonetizationTests testInterstitialPolicyIsConservative]' started.
+Test Case '-[ShopCoreTests.MonetizationTests testInterstitialPolicyIsConservative]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.MonetizationTests testRewardedBonusOnlyOnCompletion]' started.
+Test Case '-[ShopCoreTests.MonetizationTests testRewardedBonusOnlyOnCompletion]' passed (0.001 seconds).
+Test Suite 'MonetizationTests' passed at 2026-10-22 20:56:47.183.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'PersistenceTests' started at 2026-10-22 20:56:47.183.
+Test Case '-[ShopCoreTests.PersistenceTests testAccessibilitySettingsPersistAndClamp]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testAccessibilitySettingsPersistAndClamp]' passed (0.002 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testBareStateFromFormatZeroMigrates]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testBareStateFromFormatZeroMigrates]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testCorruptPrimaryFallsBackToBackup]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testCorruptPrimaryFallsBackToBackup]' passed (0.004 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testFileStoreWritesAtomicallyAndKeepsBackup]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testFileStoreWritesAtomicallyAndKeepsBackup]' passed (0.004 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testFullLoopRunsWithoutAnyServices]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testFullLoopRunsWithoutAnyServices]' passed (0.003 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testFutureVersionIsRejectedNotMangled]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testFutureVersionIsRejectedNotMangled]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testMissingFieldsUseDefaults]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testMissingFieldsUseDefaults]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testMissingSaveStartsFresh]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testMissingSaveStartsFresh]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testRoundTripPreservesEverything]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testRoundTripPreservesEverything]' passed (0.003 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testSanitizerRepairsImpossibleValues]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testSanitizerRepairsImpossibleValues]' passed (0.001 seconds).
+Test Case '-[ShopCoreTests.PersistenceTests testSaveMidCustomerRestoresTheSameCustomer]' started.
+Test Case '-[ShopCoreTests.PersistenceTests testSaveMidCustomerRestoresTheSameCustomer]' passed (0.001 seconds).
+Test Suite 'PersistenceTests' passed at 2026-10-22 20:56:47.203.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.019 (0.019) seconds
+Test Suite 'PricingTests' started at 2026-10-22 20:56:47.203.
+Test Case '-[ShopCoreTests.PricingTests testCustomerBudgetsReflectSensitivity]' started.
+Test Case '-[ShopCoreTests.PricingTests testCustomerBudgetsReflectSensitivity]' passed (0.015 seconds).
+Test Case '-[ShopCoreTests.PricingTests testPriceIsClamped]' started.
+Test Case '-[ShopCoreTests.PricingTests testPriceIsClamped]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.PricingTests testRecommendedPriceSellsToEveryone]' started.
+Test Case '-[ShopCoreTests.PricingTests testRecommendedPriceSellsToEveryone]' passed (0.001 seconds).
+Test Suite 'PricingTests' passed at 2026-10-22 20:56:47.218.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.015 (0.015) seconds
+Test Suite 'QuestTests' started at 2026-10-22 20:56:47.218.
+Test Case '-[ShopCoreTests.QuestTests testAchievementsClaimOnlyWhenEarnedAndOnce]' started.
+Test Case '-[ShopCoreTests.QuestTests testAchievementsClaimOnlyWhenEarnedAndOnce]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.QuestTests testCollectionsTrackProgressAndReward]' started.
+Test Case '-[ShopCoreTests.QuestTests testCollectionsTrackProgressAndReward]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.QuestTests testDailyGoalsGenerateProgressAndClaimOnce]' started.
+Test Case '-[ShopCoreTests.QuestTests testDailyGoalsGenerateProgressAndClaimOnce]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.QuestTests testInfeasibleGoalsAreNeverGenerated]' started.
+Test Case '-[ShopCoreTests.QuestTests testInfeasibleGoalsAreNeverGenerated]' passed (0.011 seconds).
+Test Suite 'QuestTests' passed at 2026-10-22 20:56:47.231.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.012 (0.012) seconds
+Test Suite 'RestockAndUpgradeTests' started at 2026-10-22 20:56:47.231.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testAllFourTiersUnlockEveryNonDistrictProduct]' started.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testAllFourTiersUnlockEveryNonDistrictProduct]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testMaxRestockableIsLimitedByCoins]' started.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testMaxRestockableIsLimitedByCoins]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testRestockRequiresCoins]' started.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testRestockRequiresCoins]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testRestockRespectsCapacityAndQuantity]' started.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testRestockRespectsCapacityAndQuantity]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testUpgradeCostsAndMaxLevel]' started.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testUpgradeCostsAndMaxLevel]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testUpgradesHaveMeasurableEffects]' started.
+Test Case '-[ShopCoreTests.RestockAndUpgradeTests testUpgradesHaveMeasurableEffects]' passed (0.000 seconds).
+Test Suite 'RestockAndUpgradeTests' passed at 2026-10-22 20:56:47.232.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'SalesTests' started at 2026-10-22 20:56:47.232.
+Test Case '-[ShopCoreTests.SalesTests testCannotSellMoreThanInStock]' started.
+Test Case '-[ShopCoreTests.SalesTests testCannotSellMoreThanInStock]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testDoubleServeIsRejected]' started.
+Test Case '-[ShopCoreTests.SalesTests testDoubleServeIsRejected]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testGiftWrapBonusRequiresStation]' started.
+Test Case '-[ShopCoreTests.SalesTests testGiftWrapBonusRequiresStation]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testLoweringPriceAfterRefusalCompletesSale]' started.
+Test Case '-[ShopCoreTests.SalesTests testLoweringPriceAfterRefusalCompletesSale]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testOverpricedSaleGetsSecondChanceThenWalkout]' started.
+Test Case '-[ShopCoreTests.SalesTests testOverpricedSaleGetsSecondChanceThenWalkout]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testPriceAtBudgetIsAcceptedButLessSatisfying]' started.
+Test Case '-[ShopCoreTests.SalesTests testPriceAtBudgetIsAcceptedButLessSatisfying]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testServeWithoutCustomerOrStaleIdFails]' started.
+Test Case '-[ShopCoreTests.SalesTests testServeWithoutCustomerOrStaleIdFails]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testSingleBadInteractionCannotDropReputationLevel]' started.
+Test Case '-[ShopCoreTests.SalesTests testSingleBadInteractionCannotDropReputationLevel]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testSuccessfulSaleUpdatesEverything]' started.
+Test Case '-[ShopCoreTests.SalesTests testSuccessfulSaleUpdatesEverything]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.SalesTests testTipScalesWithSatisfactionAndCheckoutUpgrade]' started.
+Test Case '-[ShopCoreTests.SalesTests testTipScalesWithSatisfactionAndCheckoutUpgrade]' passed (0.000 seconds).
+Test Suite 'SalesTests' passed at 2026-10-22 20:56:47.233.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'ShowcaseStateTests' started at 2026-10-22 20:56:47.233.
+Test Case '-[ShopCoreTests.ShowcaseStateTests testShowcaseStateIsValidAndPlayable]' started.
+Test Case '-[ShopCoreTests.ShowcaseStateTests testShowcaseStateIsValidAndPlayable]' passed (0.001 seconds).
+Test Suite 'ShowcaseStateTests' passed at 2026-10-22 20:56:47.234.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'StartingStateTests' started at 2026-10-22 20:56:47.234.
+Test Case '-[ShopCoreTests.StartingStateTests testFirstSessionTutorialFlow]' started.
+Test Case '-[ShopCoreTests.StartingStateTests testFirstSessionTutorialFlow]' passed (0.000 seconds).
+Test Case '-[ShopCoreTests.StartingStateTests testStartingCoinsAndInventory]' started.
+Test Case '-[ShopCoreTests.StartingStateTests testStartingCoinsAndInventory]' passed (0.000 seconds).
+Test Suite 'StartingStateTests' passed at 2026-10-22 20:56:47.235.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'ShopCorePackageTests.xctest' passed at 2026-10-22 20:56:47.235.
+	 Executed 66 tests, with 0 failures (0 unexpected) in 0.120 (0.123) seconds
+Test Suite 'All tests' passed at 2026-10-22 20:56:47.235.
+	 Executed 66 tests, with 0 failures (0 unexpected) in 0.120 (0.126) seconds
+◇ Test run started.
+↳ Testing Library Version: 124.4
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests passed after 0.001 seconds.
