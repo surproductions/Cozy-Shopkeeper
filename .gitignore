@@ -1,0 +1,30 @@
+# Xcode / XcodeGen output
+*.xcodeproj/
+*.xcworkspace/
+App/Info.plist
+DerivedData/
+build/
+artifacts/
+*.xcarchive
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+ShopCore/.build/
+ShopCore/.swiftpm/
+Package.resolved
+
+# Signing material — never commit
+*.p12
+*.cer
+*.mobileprovision
+*.provisionprofile
+*.keychain-db
+
+# Misc
+.DS_Store
+*.swp
+__pycache__/
