@@ -1,0 +1,2 @@
+318:/Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper/App/Sources/App/CozyShopkeeperApp.swift:40:15: warning: will never be executed
+366:2026-10-22 17:58:21.681 appintentsmetadataprocessor[2618:11738] warning: Metadata extraction skipped. No AppIntents.framework dependency found.

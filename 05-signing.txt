@@ -1,0 +1,1 @@
+ASC_KEY_P8 is not a valid .p8 key (raw or base64)
