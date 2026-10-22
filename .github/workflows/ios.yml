@@ -86,7 +86,10 @@ jobs:
             echo "signed=false" >> "$GITHUB_OUTPUT"
             echo "SIGNING FAILED"
           fi
-          grep -E "error|Error|warning: |codesign|Authority|TeamIdentifier|ARCHIVE|EXPORT|Exported|^[0-9]+$|API key|Signing|signing|provision|certificate" build/logs/05-signing-full.txt | grep -v "^    " | tail -150 > build/logs/05-signing.txt || true
+          head -5 build/logs/05-signing-full.txt > build/logs/05-signing.txt
+          echo "--- notable lines" >> build/logs/05-signing.txt
+          grep -E "error|Error|warning: |codesign|Authority|TeamIdentifier|ARCHIVE|EXPORT|Exported|^[0-9]+$|API key|ASC_KEY|Signing|signing|provision|certificate" build/logs/05-signing-full.txt | grep -v "^    " | tail -150 >> build/logs/05-signing.txt || true
+          echo "--- last lines" >> build/logs/05-signing.txt
           tail -60 build/logs/05-signing-full.txt >> build/logs/05-signing.txt
           rm -f build/logs/05-signing-full.txt
 

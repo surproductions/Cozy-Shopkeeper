@@ -13,14 +13,8 @@ set -euo pipefail
 KEY_DIR="$HOME/.appstoreconnect/private_keys"
 KEY_PATH="$KEY_DIR/AuthKey_${ASC_KEY_ID}.p8"
 mkdir -p "$KEY_DIR"
-if printf '%s' "$ASC_KEY_P8" | grep -q "BEGIN PRIVATE KEY"; then
-  printf '%s\n' "$ASC_KEY_P8" > "$KEY_PATH"
-else
-  printf '%s' "$ASC_KEY_P8" | base64 --decode > "$KEY_PATH"
-fi
-chmod 600 "$KEY_PATH"
-grep -q "BEGIN PRIVATE KEY" "$KEY_PATH" || { echo "ASC_KEY_P8 is not a valid .p8 key (raw or base64)"; exit 1; }
-echo "API key file written for key ID ${ASC_KEY_ID:0:4}…"
+python3 scripts/normalize_p8.py "$KEY_PATH"
+openssl pkey -in "$KEY_PATH" -noout && echo "API key parses as a valid private key (key ID ${ASC_KEY_ID:0:4}…, team ${APPLE_TEAM_ID:0:3}…)"
 
 AUTH=(-allowProvisioningUpdates
       -authenticationKeyPath "$KEY_PATH"
