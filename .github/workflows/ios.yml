@@ -66,23 +66,43 @@ jobs:
           echo "APP_BUILD=$BUILD" >> "$GITHUB_ENV"
           { echo "version=$VERSION build=$BUILD bundle=$BUNDLE"; ls -la artifacts; unzip -l artifacts/Cozy-Shopkeeper-unsigned.ipa | tail -5; } | tee build/logs/04-package.txt
 
-      - name: Signed IPA (only when signing secrets are configured)
+      - name: App Store signed IPA (needs APPLE_TEAM_ID + ASC_* secrets)
         id: signed
         env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-          TEAM_ID: ${{ secrets.TEAM_ID }}
-          EXPORT_METHOD: ${{ secrets.EXPORT_METHOD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
         run: |
-          if [ -z "$BUILD_CERTIFICATE_BASE64" ] || [ -z "$BUILD_PROVISION_PROFILE_BASE64" ] || [ -z "$TEAM_ID" ]; then
-            echo "Signing secrets not configured — skipping signed export." | tee build/logs/05-signing.txt
+          if [ -z "$APPLE_TEAM_ID" ] || [ -z "$ASC_KEY_ID" ] || [ -z "$ASC_ISSUER_ID" ] || [ -z "$ASC_KEY_P8" ]; then
+            echo "App Store secrets not configured — skipping signed export." | tee build/logs/05-signing.txt
             echo "signed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          scripts/ci_sign_and_export.sh 2>&1 | tee build/logs/05-signing.txt
-          echo "signed=true" >> "$GITHUB_OUTPUT"
+          set -o pipefail
+          if scripts/ci_appstore.sh > build/logs/05-signing-full.txt 2>&1; then
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+            echo "SIGNING FAILED"
+          fi
+          grep -E "error|Error|warning: |codesign|Authority|TeamIdentifier|ARCHIVE|EXPORT|Exported|^[0-9]+$|API key|Signing|signing|provision|certificate" build/logs/05-signing-full.txt | grep -v "^    " | tail -150 > build/logs/05-signing.txt || true
+          tail -60 build/logs/05-signing-full.txt >> build/logs/05-signing.txt
+          rm -f build/logs/05-signing-full.txt
+
+      - name: Upload to App Store Connect (TestFlight)
+        id: upload
+        if: steps.signed.outputs.signed == 'true'
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          if scripts/ci_upload.sh > build/logs/07-upload.txt 2>&1; then
+            echo "uploaded=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "uploaded=false" >> "$GITHUB_OUTPUT"
+          fi
+          tail -80 build/logs/07-upload.txt
 
       - name: Checksums
         run: (cd artifacts && shasum -a 256 *.ipa > SHA256SUMS.txt && cat SHA256SUMS.txt)
@@ -97,10 +117,15 @@ jobs:
             echo "Cozy Shopkeeper ${VERSION} (build ${APP_BUILD}) — commit ${GITHUB_SHA::7}"
             echo
             if [ "$SIGNED" = "true" ]; then
-              echo "**Cozy-Shopkeeper.ipa** is signed with the configured certificate and provisioning profile."
-            else
-              echo "**Cozy-Shopkeeper-unsigned.ipa is not signed.** It must be signed before it can be installed — e.g. with a sideloading tool (Sideloadly, AltStore) using your Apple ID, or by configuring the signing secrets described in the README."
+              echo "**Cozy-Shopkeeper-AppStore.ipa** is signed for App Store distribution (TestFlight / App Store). It cannot be sideloaded."
+              if [ "${{ steps.upload.outputs.uploaded }}" = "true" ]; then
+                echo "It was uploaded to App Store Connect and will appear in TestFlight after Apple finishes processing."
+              else
+                echo "Upload to App Store Connect did not succeed — see ci-logs/run-${GITHUB_RUN_NUMBER}/07-upload.txt."
+              fi
+              echo
             fi
+            echo "**Cozy-Shopkeeper-unsigned.ipa** is not signed; install it with Sideloadly or AltStore using your Apple ID."
             echo
             echo "Core logic tests passed before packaging. Simulator test results are added below once they finish."
             echo
@@ -142,6 +167,10 @@ jobs:
           printf "\n\n%s\n" "$STATUS" >> build/notes-now.md
           gh release edit "$TAG" --notes-file build/notes-now.md
 
+      - name: App Store screenshots (6.9-inch iPhone)
+        continue-on-error: true
+        run: scripts/ci_screenshots.sh 2>&1 | tail -30 | tee build/logs/08-screenshots.txt
+
       - name: Publish build logs to a ci-logs branch
         if: always()
         env:
@@ -149,6 +178,7 @@ jobs:
         run: |
           set +e
           mkdir -p /tmp/logs && cp -R build/logs/. /tmp/logs/
+          if [ -d build/screenshots ]; then cp -R build/screenshots /tmp/logs/screenshots; fi
           cd /tmp/logs
           tail -c 200000 03-archive.txt > 03-archive-tail.txt 2>/dev/null; rm -f 03-archive.txt
           grep -nE "error:|warning: " /tmp/logs/03-archive-tail.txt > 03-archive-issues.txt 2>/dev/null
@@ -167,4 +197,5 @@ jobs:
           path: |
             artifacts/
             build/logs/
+            build/screenshots/
           retention-days: 14

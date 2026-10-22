@@ -78,7 +78,7 @@ struct UpgradeRow: View {
                         store.buyUpgrade(upgrade.id)
                     } label: {
                         HStack {
-                            Text(affordable ? "Upgrade" : "Need \(cost - store.state.coins) more")
+                            Text(affordable ? "Upgrade" : "Need \(short(cost - store.state.coins)) more")
                             Spacer()
                             CoinAmount(amount: cost, font: Theme.headline, size: 16)
                         }

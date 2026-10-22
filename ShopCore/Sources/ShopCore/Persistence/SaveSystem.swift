@@ -167,6 +167,12 @@ public struct LoadResult: Sendable {
     public let state: GameState?
     public let source: LoadSource
     public let problems: [String]
+
+    public init(state: GameState?, source: LoadSource, problems: [String]) {
+        self.state = state
+        self.source = source
+        self.problems = problems
+    }
 }
 
 /// Stores saves as JSON in a directory with an automatic last-good backup.

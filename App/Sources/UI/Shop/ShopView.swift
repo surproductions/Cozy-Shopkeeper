@@ -80,6 +80,7 @@ struct ShopHUD: View {
                 .padding(.vertical, 6)
                 .background(Capsule().fill(Theme.card))
                 .overlay(Capsule().strokeBorder(Theme.cardEdge, lineWidth: 1.5))
+                .layoutPriority(2)
                 .accessibilityIdentifier("coinsLabel")
                 .animation(.spring(response: 0.4), value: store.state.coins)
 
@@ -87,9 +88,10 @@ struct ShopHUD: View {
                 HStack(spacing: 4) {
                     Image(systemName: "star.fill").foregroundStyle(Theme.gold).font(.system(size: 12))
                     Text("Reputation \(engine.reputationLevel)").font(Theme.caption.weight(.bold)).foregroundStyle(Theme.ink)
+                        .lineLimit(1).minimumScaleFactor(0.7)
                 }
                 CozyProgressBar(value: engine.config.reputationProgress(for: store.state.reputation), tint: Theme.gold, height: 7)
-                    .frame(width: 92)
+                    .frame(minWidth: 50, maxWidth: 92)
             }
             .accessibilityElement(children: .combine)
             .accessibilityLabel("Reputation level \(engine.reputationLevel)")
@@ -97,8 +99,10 @@ struct ShopHUD: View {
             Spacer(minLength: 4)
 
             VStack(alignment: .trailing, spacing: 1) {
-                Text("Day \(day.dayNumber)").font(Theme.headline).foregroundStyle(Theme.ink)
+                Text("Day \(short(day.dayNumber))").font(Theme.headline).foregroundStyle(Theme.ink)
+                    .lineLimit(1).minimumScaleFactor(0.7)
                 SoftText("\(min(day.customersArrived, day.customersPlanned))/\(day.customersPlanned) customers", font: Theme.caption)
+                    .lineLimit(1).minimumScaleFactor(0.7)
             }
             .accessibilityElement(children: .combine)
 
@@ -311,11 +315,11 @@ struct CoinBurstView: View {
                     }
                 }
                 VStack(spacing: 2) {
-                    Text("+\(burst.amount)")
+                    Text("+\(short(burst.amount))")
                         .font(Theme.title(30))
                         .foregroundStyle(Color(hex: 0xA0702A))
                     if burst.tip > 0 {
-                        Text("+\(burst.tip) tip")
+                        Text("+\(short(burst.tip)) tip")
                             .font(Theme.headline)
                             .foregroundStyle(Theme.deepSage)
                     }

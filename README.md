@@ -66,20 +66,18 @@ The scheme uses `App/CozyShopkeeper.storekit`, so the Remove Ads purchase works 
 
 An unsigned IPA cannot be installed as-is. Sign it on install with a sideloading tool (Sideloadly or AltStore) using your Apple ID. With a free Apple ID the app expires after 7 days.
 
-### Getting a signed IPA from CI
+### App Store signing and TestFlight upload
 
-Add these repository secrets (Settings → Secrets and variables → Actions):
+When these repository secrets exist, CI also archives with Xcode automatic (cloud-managed) signing, exports **`Cozy-Shopkeeper-AppStore.ipa`**, and uploads it to App Store Connect, where it shows up in TestFlight:
 
 | Secret | Value |
 |---|---|
-| `BUILD_CERTIFICATE_BASE64` | `base64 -i cert.p12` of an Apple Distribution certificate |
-| `P12_PASSWORD` | The .p12 password |
-| `BUILD_PROVISION_PROFILE_BASE64` | `base64 -i profile.mobileprovision` (Ad Hoc for device installs, App Store for TestFlight) for `com.surproductions.cozyshopkeeper` |
-| `KEYCHAIN_PASSWORD` | Any random string |
-| `TEAM_ID` | Your 10-character Team ID |
-| `EXPORT_METHOD` | Optional: `release-testing` (default, Ad Hoc), `app-store-connect`, or `debugging` |
+| `APPLE_TEAM_ID` | Your 10-character Team ID |
+| `ASC_KEY_ID` | App Store Connect API key ID |
+| `ASC_ISSUER_ID` | App Store Connect issuer ID |
+| `ASC_KEY_P8` | Contents of `AuthKey_XXXX.p8` (raw text or base64) |
 
-These require a paid Apple Developer Program membership. Nothing secret is stored in the repo.
+The API key needs the **Admin** role so Xcode can create the distribution certificate and provisioning profile. The upload only succeeds once the app record exists in App Store Connect (see `docs/APP_STORE.md`). The App Store IPA cannot be sideloaded; use the unsigned one for that.
 
 ## In-app purchase setup
 

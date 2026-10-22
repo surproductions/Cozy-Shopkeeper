@@ -131,7 +131,7 @@ struct StockRow: View {
                 if enabled {
                     HStack(spacing: 2) {
                         CoinGlyph(size: 10)
-                        Text("\(cost)").font(.system(size: 11, weight: .semibold, design: .rounded)).monospacedDigit()
+                        Text(short(cost)).font(.system(size: 11, weight: .semibold, design: .rounded)).monospacedDigit()
                     }
                 }
             }

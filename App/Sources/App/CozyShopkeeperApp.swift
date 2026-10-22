@@ -21,7 +21,28 @@ struct CozyShopkeeperApp: App {
         #else
         let ads: AdProviding = NoAdNetworkProvider()
         #endif
-        _store = StateObject(wrappedValue: GameStore(saveStore: FileSaveStore(directory: directory), ads: ads))
+        var initialState: GameState?
+        var openSheet: ActiveSheet?
+        #if DEBUG
+        // App Store screenshot mode: a showcase shop, no pop-ups, optionally one screen open.
+        let arguments = ProcessInfo.processInfo.arguments
+        let screenshotMode = arguments.contains("-ui-screenshots")
+        if screenshotMode {
+            initialState = ShowcaseState.make(now: Date(), timeZone: .current)
+            if let index = arguments.firstIndex(of: "-screen"), index + 1 < arguments.count {
+                openSheet = ActiveSheet(rawValue: arguments[index + 1])
+            }
+        }
+        #else
+        let screenshotMode = false
+        #endif
+        let saveDirectory = screenshotMode
+            ? FileManager.default.temporaryDirectory.appendingPathComponent("screenshots-\(UUID().uuidString)")
+            : directory
+        let store = GameStore(saveStore: FileSaveStore(directory: saveDirectory), ads: ads, initialState: initialState)
+        store.suppressPopups = screenshotMode
+        store.activeSheet = openSheet
+        _store = StateObject(wrappedValue: store)
     }
 
     var body: some Scene {

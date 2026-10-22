@@ -5,6 +5,9 @@ import ShopCore
 @MainActor
 protocol AdProviding: AnyObject {
     var networkName: String { get }
+    /// True only when a real ad network that can show interruptive ads is integrated.
+    /// The Remove Ads purchase is only offered when this is true (App Review guideline 2.3.1).
+    var servesInterruptiveAds: Bool { get }
     var isRewardedReady: Bool { get }
     var isInterstitialReady: Bool { get }
     /// Must only return `.completed` when the network confirms the full view.
@@ -16,6 +19,7 @@ protocol AdProviding: AnyObject {
 @MainActor
 final class NoAdNetworkProvider: AdProviding {
     let networkName = "None configured"
+    let servesInterruptiveAds = false
     var isRewardedReady: Bool { false }
     var isInterstitialReady: Bool { false }
     func showRewarded(placement: AdPlacement) async -> AdResult { .unavailable }
@@ -33,6 +37,7 @@ final class DebugSimulatedAdProvider: AdProviding {
     }
 
     let networkName = "Debug simulator"
+    var servesInterruptiveAds: Bool { behavior != .off }
     var behavior: Behavior = .off
     var isRewardedReady: Bool { behavior != .off }
     var isInterstitialReady: Bool { behavior != .off }

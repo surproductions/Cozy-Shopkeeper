@@ -44,14 +44,16 @@ struct SettingsView: View {
                         .font(Theme.body)
                         .tint(Theme.deepSage)
                     }
-                    Panel {
-                        VStack(alignment: .leading, spacing: 10) {
-                            sectionTitle("Ads & purchases", symbol: "sparkles")
-                            removeAdsSection
-                            Button("Restore purchases") { store.restorePurchases() }
-                                .buttonStyle(.cozy(.quiet, compact: true))
-                            SoftText("No ad network is included in this version, so the game shows no ads. Remove Ads permanently disables interruptive ads in future versions; optional reward videos would stay optional.", font: Theme.caption)
-                                .fixedSize(horizontal: false, vertical: true)
+                    if store.ads.servesInterruptiveAds || purchases.ownsRemoveAds {
+                        Panel {
+                            VStack(alignment: .leading, spacing: 10) {
+                                sectionTitle("Ads & purchases", symbol: "sparkles")
+                                removeAdsSection
+                                Button("Restore purchases") { store.restorePurchases() }
+                                    .buttonStyle(.cozy(.quiet, compact: true))
+                                SoftText("Remove Ads permanently turns off interruptive ads. Optional reward videos stay optional.", font: Theme.caption)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
                         }
                     }
                     Panel {

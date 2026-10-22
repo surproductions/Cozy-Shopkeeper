@@ -93,6 +93,9 @@ struct CoinGlyph: View {
     }
 }
 
+/// Short label for any player-facing number ("1.79K", "2.3M").
+func short(_ value: Int) -> String { CompactNumber.format(value) }
+
 struct CoinAmount: View {
     let amount: Int
     var font: Font = Theme.headline
@@ -101,11 +104,13 @@ struct CoinAmount: View {
     var body: some View {
         HStack(spacing: 4) {
             CoinGlyph(size: size)
-            Text("\(amount)")
+            Text(short(amount))
                 .font(font)
                 .monospacedDigit()
+                .lineLimit(1)
                 .contentTransition(.numericText())
         }
+        .fixedSize()
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(amount) coins")
     }

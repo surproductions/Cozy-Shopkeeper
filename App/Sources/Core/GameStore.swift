@@ -63,12 +63,14 @@ final class GameStore: ObservableObject {
     private var reactionTask: Task<Void, Never>?
     private var interstitialsThisSession = 0
     private var sessionStartedAt = Date()
+    /// Set for screenshot capture so no pop-ups cover the scene.
+    var suppressPopups = false
     private var dailyRewardPromptedThisSession = false
 
     var state: GameState { engine.state }
     var content: GameContent { engine.content }
 
-    init(saveStore: FileSaveStore, ads: AdProviding, now: Date = Date()) {
+    init(saveStore: FileSaveStore, ads: AdProviding, now: Date = Date(), initialState: GameState? = nil) {
         self.saveStore = saveStore
         self.ads = ads
         self.analytics = LocalAnalytics()
@@ -78,7 +80,7 @@ final class GameStore: ObservableObject {
         self.appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
         self.buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
 
-        let result = saveStore.load()
+        let result = initialState.map { LoadResult(state: $0, source: .primary, problems: []) } ?? saveStore.load()
         loadSource = result.source
         loadProblems = result.problems
         if let saved = result.state {
@@ -118,7 +120,7 @@ final class GameStore: ObservableObject {
         purchases.start()
         perform { $0.refreshCalendarDay(now: now, timeZone: .current) }
         resumeCustomers()
-        if state.tutorialStep == .done && !dailyRewardPromptedThisSession
+        if state.tutorialStep == .done && !dailyRewardPromptedThisSession && !suppressPopups
             && engine.isDailyRewardAvailable(now: now, timeZone: .current) {
             dailyRewardPromptedThisSession = true
             showDailyReward = true
@@ -360,7 +362,7 @@ final class GameStore: ObservableObject {
         audio.play(.tap)
         haptics.tap()
         let name = content.product(productId)?.name ?? "stock"
-        showToast("Restocked \(quantity) × \(name) for \(cost) coins", kind: .success)
+        showToast("Restocked \(quantity) × \(name) for \(short(cost)) coins", kind: .success)
         if wasTutorialRestock {
             activeSheet = nil
             audio.play(.unlock)
@@ -494,7 +496,7 @@ final class GameStore: ObservableObject {
         guard let summary = handle(perform { try $0.closeDay() }) else { return }
         audio.play(.bell)
         if summary.reliefCoins > 0 {
-            showToast("A kind neighbor left \(summary.reliefCoins) coins to help restock.", kind: .info)
+            showToast("A kind neighbor left \(short(summary.reliefCoins)) coins to help restock.", kind: .info)
         }
         maybeShowInterstitial()
         resumeCustomers()

@@ -142,7 +142,7 @@ struct DistrictPanel: View {
                 } else {
                     VStack(alignment: .leading, spacing: 6) {
                         requirement("Reputation level \(district.requiredReputationLevel)", met: repOK, detail: "you're level \(engine.reputationLevel)")
-                        requirement("\(district.unlockCost) coins", met: coinsOK, detail: "you have \(store.state.coins)")
+                        requirement("\(short(district.unlockCost)) coins", met: coinsOK, detail: "you have \(short(store.state.coins))")
                     }
                     Button {
                         store.unlockDistrict(district.id)

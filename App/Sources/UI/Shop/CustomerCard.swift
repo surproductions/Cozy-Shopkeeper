@@ -56,7 +56,7 @@ struct CustomerCard: View {
                             } label: {
                                 HStack(spacing: 6) {
                                     Image(systemName: "bag.fill")
-                                    Text("Sell for \(price * visit.quantity)")
+                                    Text("Sell for \(short(price * visit.quantity))").lineLimit(1)
                                     CoinGlyph(size: 16)
                                 }
                                 .frame(maxWidth: .infinity)
@@ -192,9 +192,9 @@ struct DaySummaryCard: View {
                 }
                 HStack(spacing: 14) {
                     stat("Served", "\(summary.customersServed)")
-                    stat("Sales", "\(summary.revenue)")
-                    stat("Tips", "\(summary.tips)")
-                    stat("Restock", "−\(summary.restockSpend)")
+                    stat("Sales", short(summary.revenue))
+                    stat("Tips", short(summary.tips))
+                    stat("Restock", "−" + short(summary.restockSpend))
                 }
                 if store.canOfferRewardedBonus {
                     Button {
@@ -220,7 +220,7 @@ struct DaySummaryCard: View {
 
     private func stat(_ title: String, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 1) {
-            Text(value).font(Theme.headline).foregroundStyle(Theme.ink).monospacedDigit()
+            Text(value).font(Theme.headline).foregroundStyle(Theme.ink).monospacedDigit().lineLimit(1)
             SoftText(title, font: Theme.caption)
         }
         .accessibilityElement(children: .combine)
