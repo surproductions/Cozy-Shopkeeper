@@ -1,0 +1,10 @@
+version=1.0.0 build=2 bundle=com.surproductions.cozyshopkeeper
+total 3344
+drwxr-xr-x   3 runner  staff       96 Oct 22 11:36 .
+drwxr-xr-x  14 runner  staff      448 Oct 22 11:34 ..
+-rw-r--r--   1 runner  staff  1708614 Oct 22 11:36 Cozy-Shopkeeper-unsigned.ipa
+    52964  10-22-2026 11:36   Payload/CozyShopkeeper.app/sfx_decline.wav
+     1345  10-22-2026 11:36   Payload/CozyShopkeeper.app/Info.plist
+        8  10-22-2026 11:36   Payload/CozyShopkeeper.app/PkgInfo
+---------                     -------
+  2699853                     16 files
