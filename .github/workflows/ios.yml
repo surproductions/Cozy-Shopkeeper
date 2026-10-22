@@ -1,5 +1,5 @@
 name: iOS build, test & IPA
-# Builds, tests and packages the iOS app on a GitHub-hosted macOS runner.
+# Builds, tests, packages and uploads the iOS app (TestFlight) on a GitHub-hosted macOS runner.
 
 on:
   push:
