@@ -1,0 +1,82 @@
+ASC_KEY_P8: 203 chars, 4 lines, contains BEGIN: False
+API key recognized as: bare key body (no BEGIN/END lines)
+API key parses as a valid private key (key ID 77LW…, team FUR…)
+Command line invocation:
+    /Applications/Xcode_16.4.app/Contents/Developer/usr/bin/xcodebuild archive -project CozyShopkeeper.xcodeproj -scheme CozyShopkeeper -configuration Release -destination generic/platform=iOS -archivePath build/AppStore.xcarchive CURRENT_PROJECT_VERSION=4 DEVELOPMENT_TEAM=FUR4UGH9HT CODE_SIGN_STYLE=Automatic -allowProvisioningUpdates -authenticationKeyPath /Users/runner/.appstoreconnect/private_keys/AuthKey_77LWK9WKH8.p8 -authenticationKeyID 77LWK9WKH8 -authenticationKeyIssuerID 4719a78b-6396-4c7f-b85d-7d8d8ed9bb12
+--- notable lines
+ASC_KEY_P8: 203 chars, 4 lines, contains BEGIN: False
+API key recognized as: bare key body (no BEGIN/END lines)
+API key parses as a valid private key (key ID 77LW…, team FUR…)
+ProcessProductPackaging /Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/e4f7ae6e-413d-4220-9aa4-18dda964de30.mobileprovision /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/embedded.mobileprovision (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+/Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper/App/Sources/App/CozyShopkeeperApp.swift:40:15: warning: will never be executed
+2026-10-22 18:22:27.542 appintentsmetadataprocessor[4587:17172] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+** ARCHIVE SUCCEEDED **
+Exported CozyShopkeeper to: /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper/build/appstore
+** EXPORT SUCCEEDED **
+Authority=Apple Distribution: Samad Samnani (FUR4UGH9HT)
+Authority=Apple Worldwide Developer Relations Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=FUR4UGH9HT
+codesign verify: OK
+4
+--- last lines
+
+GenerateDSYMFile /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/BuildProductsPath/Release-iphoneos/CozyShopkeeper.app.dSYM /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/CozyShopkeeper (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/CozyShopkeeper -o /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/BuildProductsPath/Release-iphoneos/CozyShopkeeper.app.dSYM
+
+AppIntentsSSUTraining (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/Info.plist --temp-dir-path /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/IntermediateBuildFilesPath/CozyShopkeeper.build/Release-iphoneos/CozyShopkeeper.build/ssu --bundle-id com.surproductions.cozyshopkeeper --product-path /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app --extracted-metadata-path /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/Metadata.appintents --deployment-postprocessing --metadata-file-list /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/IntermediateBuildFilesPath/CozyShopkeeper.build/Release-iphoneos/CozyShopkeeper.build/CozyShopkeeper.DependencyMetadataFileList --archive-ssu-assets
+2026-10-22 18:22:27.580 appintentsnltrainingprocessor[4589:17177] Parsing options for appintentsnltrainingprocessor
+2026-10-22 18:22:27.583 appintentsnltrainingprocessor[4589:17177] No AppShortcuts found - Skipping.
+
+Strip /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/CozyShopkeeper (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    /Applications/Xcode_16.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -D /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app/CozyShopkeeper
+
+SetOwnerAndGroup runner:staff /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    /usr/sbin/chown -RH runner:staff /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app
+
+SetMode u+w,go-w,a+rX /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    /bin/chmod -RH u+w,go-w,a+rX /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app
+
+CodeSign /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    
+    Signing Identity:     "Apple Development: Created via API (77LWK9WKH8)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (e4f7ae6e-413d-4220-9aa4-18dda964de30)
+    
+    /usr/bin/codesign --force --sign 42A4B6B6460D4A0543D46264F407D795E2CBA45A --entitlements /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/IntermediateBuildFilesPath/CozyShopkeeper.build/Release-iphoneos/CozyShopkeeper.build/CozyShopkeeper.app.xcent --generate-entitlement-der /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app
+
+RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    builtin-RegisterExecutionPolicyException /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app
+
+Validate /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    builtin-validationUtility /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app -infoplist-subpath Info.plist
+
+Touch /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+    cd /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper
+    /usr/bin/touch -c /Users/runner/Library/Developer/Xcode/DerivedData/CozyShopkeeper-efxriyleuoedbsfuyxiqporhrphh/Build/Intermediates.noindex/ArchiveIntermediates/CozyShopkeeper/InstallationBuildProductsLocation/Applications/CozyShopkeeper.app
+
+note: Disabling previews because SWIFT_VERSION is set and SWIFT_OPTIMIZATION_LEVEL=-Owholemodule, expected -Onone (in target 'ShopCore' from project 'ShopCore')
+note: Disabling previews because SWIFT_VERSION is set and SWIFT_OPTIMIZATION_LEVEL=-O, expected -Onone (in target 'CozyShopkeeper' from project 'CozyShopkeeper')
+** ARCHIVE SUCCEEDED **
+
+2026-10-22 18:22:29.916 xcodebuild[4602:17245] [MT] IDEDistribution: -[IDEDistributionLogging _createLoggingBundleAtPath:]: Created bundle at path "/var/folders/nj/vtw8zd2j31d1gdrtntc5y4600000gn/T/CozyShopkeeper_2026-10-22_18-22-29.912.xcdistributionlogs".
+Exported CozyShopkeeper to: /Users/runner/work/Cozy-Shopkeeper/Cozy-Shopkeeper/build/appstore
+** EXPORT SUCCEEDED **
+
+--- Signature
+Identifier=com.surproductions.cozyshopkeeper
+Authority=Apple Distribution: Samad Samnani (FUR4UGH9HT)
+Authority=Apple Worldwide Developer Relations Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=FUR4UGH9HT
+codesign verify: OK
+4

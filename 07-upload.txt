@@ -1,0 +1,8 @@
+Running altool at path '/Applications/Xcode_16.4.app/Contents/SharedFrameworks/ContentDeliveryServices.framework/Frameworks/AppStoreService.framework/Support/altool'...
+2026-10-22 18:22:39.637 ERROR: [altool.6000003A8000] Validation failed for 'artifacts/Cozy-Shopkeeper-AppStore.ipa'.
+2026-10-22 18:22:39.638 ERROR: [altool.6000003A8000] No suitable application records were found. Verify your bundle identifier “com.surproductions.cozyshopkeeper” is correct and that you are signed in with an Apple ID that has access to the app in App Store Connect. App Store operation failed. (-19000)
+ {
+    NSLocalizedDescription = "No suitable application records were found. Verify your bundle identifier \U201ccom.surproductions.cozyshopkeeper\U201d is correct and that you are signed in with an Apple ID that has access to the app in App Store Connect.";
+    NSLocalizedFailureReason = "App Store operation failed.";
+    NSLocalizedRecoverySuggestion = "No suitable application records were found. Verify your bundle identifier \U201ccom.surproductions.cozyshopkeeper\U201d is correct and that you are signed in with an Apple ID that has access to the app in App Store Connect.";
+}
